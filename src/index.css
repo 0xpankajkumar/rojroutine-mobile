@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f6f4f8;
+    --card: #ffffff;
+    --line: #e4dfea;
+    --tx: #1b1b1f;
+    --mu: #77727f;
+    --ac: #a24fd6;
+    --red: #cc3a33;
+    --off: #e9e5ee;
+
+    --background: 270 20% 96%;
+    --foreground: 240 10% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 12%;
+
+    --primary: 275 62% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 15% 92%;
+    --secondary-foreground: 240 10% 12%;
+
+    --muted: 270 10% 94%;
+    --muted-foreground: 260 6% 47%;
+
+    --accent: 275 62% 57%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 2 60% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 12% 90%;
+    --input: 270 12% 90%;
+    --ring: 275 62% 57%;
+
+    --radius: 0.75rem;
+
+    /* Habit colors (HSL triples) */
+    --habit-green: 96 60% 50%;
+    --habit-red: 0 70% 60%;
+    --habit-purple: 290 50% 60%;
+    --habit-slate: 200 15% 55%;
+    --habit-orange: 30 80% 60%;
+    --habit-emerald: 140 45% 50%;
+    --habit-teal: 175 40% 50%;
+    --habit-blue: 210 55% 60%;
+    --habit-crimson: 0 60% 50%;
+
+    --grid-empty: 270 10% 94%;
+    --grid-out: 270 10% 90%;
+    --grid-divider: 0 0% 100%;
+  }
+
+  .dark {
+    --bg: #141414;
+    --card: #1c1c1c;
+    --line: #2a2a2a;
+    --tx: #f2f2f2;
+    --mu: #8b8b8b;
+    --off: #262626;
+
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 275 65% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 275 65% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 2 60% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 18%;
+    --ring: 275 65% 65%;
+
+    --habit-green: 96 80% 48%;
+    --habit-red: 0 75% 50%;
+    --habit-purple: 290 60% 50%;
+    --habit-slate: 200 15% 45%;
+    --habit-orange: 30 75% 50%;
+    --habit-emerald: 140 55% 40%;
+    --habit-teal: 175 40% 40%;
+    --habit-blue: 210 45% 50%;
+    --habit-crimson: 0 65% 40%;
+
+    --grid-empty: 0 0% 12%;
+    --grid-out: 0 0% 18%;
+    --grid-divider: 0 0% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html, body, #root {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: -apple-system, "Inter", "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile App Frame Styling */
+.mobile-app-frame {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: var(--bg);
+  position: relative;
+  padding-bottom: 84px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 520px) {
+  body {
+    padding: 24px 0;
+    background: radial-gradient(circle at 50% 30%, rgba(162, 79, 214, 0.08) 0%, transparent 60%), var(--bg);
+  }
+  .mobile-app-frame {
+    height: 90vh;
+    max-height: 880px;
+    min-height: 720px;
+    border: 1px solid var(--line);
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
+    padding-bottom: 68px;
+  }
+}
+
+/* Custom Scrollbar for inner app */
+.mobile-app-frame ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.mobile-app-frame ::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
+}
+
+/* Animations */
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
